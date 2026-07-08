@@ -14,6 +14,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.signature.ObjectKey
 import com.dicoding.kisahrasa.R
 import com.dicoding.kisahrasa.auth.AuthActivity
 import com.dicoding.kisahrasa.databinding.FragmentProfileBinding
@@ -49,28 +51,28 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupUser()
         observeState()
         setupAction()
-    }
-
-    private fun setupUser() {
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            binding.tvProfileName.text = user.displayName ?: "Recipe Enthusiast"
-            binding.tvProfileEmail.text = user.email
-        }
     }
 
     private fun observeState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                profileViewModel.profileImagePath.collect { path ->
-                    if (path.isNotEmpty()) {
-                        Glide.with(this@ProfileFragment)
-                            .load(File(path))
-                            .circleCrop()
-                            .into(binding.ivProfilePicture)
+                profileViewModel.uiState.collect { state ->
+                    binding.tvProfileName.text = state.name
+                    binding.tvProfileEmail.text = state.email
+                    
+                    if (state.profileImagePath.isNotEmpty()) {
+                        val file = File(state.profileImagePath)
+                        if (file.exists()) {
+                            Glide.with(this@ProfileFragment)
+                                .load(file)
+                                .signature(ObjectKey(file.lastModified()))
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                .skipMemoryCache(true)
+                                .circleCrop()
+                                .into(binding.ivProfilePicture)
+                        }
                     }
                 }
             }

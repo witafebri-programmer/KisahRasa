@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.dicoding.kisahrasa.core.data.local.preferences.AppPreferences
 import com.dicoding.kisahrasa.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.userProfileChangeRequest
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -49,21 +50,34 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.btnCreateAccount.setOnClickListener {
+            val name = binding.edRegisterName.text.toString().trim()
             val email = binding.edRegisterEmail.text.toString().trim()
             val password = binding.edRegisterPassword.text.toString().trim()
 
-            if (validateInput(email, password)) {
+            if (validateInput(name, email, password)) {
                 showLoading(true)
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            // Persist session to DataStore on successful registration
-                            lifecycleScope.launch {
-                                appPreferences.saveLoginSession(true)
-                                showLoading(false)
-                                Toast.makeText(this@RegisterActivity, "Registration successful!", Toast.LENGTH_SHORT).show()
-                                finish()
+                            val user = auth.currentUser
+                            val profileUpdates = userProfileChangeRequest {
+                                displayName = name
                             }
+                            
+                            user?.updateProfile(profileUpdates)
+                                ?.addOnCompleteListener { updateTask ->
+                                    lifecycleScope.launch {
+                                        appPreferences.saveLoginSession(true)
+                                        showLoading(false)
+                                        if (updateTask.isSuccessful) {
+                                            Toast.makeText(this@RegisterActivity, "Registration successful!", Toast.LENGTH_SHORT).show()
+                                            finish()
+                                        } else {
+                                            Toast.makeText(this@RegisterActivity, "Failed to set name: ${updateTask.exception?.message}", Toast.LENGTH_SHORT).show()
+                                            finish()
+                                        }
+                                    }
+                                }
                         } else {
                             showLoading(false)
                             Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
@@ -73,8 +87,15 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateInput(email: String, password: String): Boolean {
+    private fun validateInput(name: String, email: String, password: String): Boolean {
         var isValid = true
+
+        if (name.isEmpty()) {
+            binding.tilRegisterName.error = "Name is required"
+            isValid = false
+        } else {
+            binding.tilRegisterName.error = null
+        }
 
         if (email.isEmpty()) {
             binding.tilRegisterEmail.error = "Email is required"

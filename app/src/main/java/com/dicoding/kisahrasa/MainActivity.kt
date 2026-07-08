@@ -69,13 +69,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.toolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.menu_favorite -> {
+                R.id.menu_favorite_dynamic -> {
                     val uri = "kisahrasa://favorite".toUri()
                     val intent = Intent(Intent.ACTION_VIEW, uri)
                     startActivity(intent)
                     true
                 }
-                R.id.menu_profile -> {
+                R.id.profileFragment -> {
                     navController.navigate(R.id.profileFragment)
                     true
                 }
