@@ -5,6 +5,7 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import javax.inject.Inject
 import javax.inject.Singleton
+import androidx.core.content.edit
 
 @Singleton
 class SecretsManager @Inject constructor(context: Context) {
@@ -22,7 +23,7 @@ class SecretsManager @Inject constructor(context: Context) {
     )
 
     fun saveSecret(key: String, value: String) {
-        sharedPreferences.edit().putString(key, value).apply()
+        sharedPreferences.edit { putString(key, value) }
     }
 
     fun getSecret(key: String): String? {
@@ -30,6 +31,6 @@ class SecretsManager @Inject constructor(context: Context) {
     }
 
     fun clearSecret(key: String) {
-        sharedPreferences.edit().remove(key).apply()
+        sharedPreferences.edit { remove(key) }
     }
 }

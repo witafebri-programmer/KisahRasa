@@ -20,7 +20,7 @@
     <string name="search_hint">Cari resep…</string>
     <string name="label_explore_recipes">Jelajahi Resep</string>
     <string name="msg_error_default">Terjadi kesalahan</string>
-    <string name="msg_no_recipes">Resep tidak ditemukan</string>
+<!--    <string name="msg_no_recipes">Resep tidak ditemukan</string>-->
     <string name="desc_recipe_image">Gambar Resep</string>
 
     <!-- Detail Activity -->
