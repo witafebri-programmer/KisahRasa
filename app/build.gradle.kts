@@ -28,6 +28,13 @@ android {
     dynamicFeatures += mutableSetOf(":favorite")
 
     buildTypes {
+        debug {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
@@ -90,6 +97,7 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     // Firebase
+    implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
 
     // Glide
