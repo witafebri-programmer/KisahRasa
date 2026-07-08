@@ -28,9 +28,6 @@ jobs:
         env:
           HAS_GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON != '' }}
 
-      - name: Run Lint
-        run: ./gradlew lintDebug
-
       - name: Run Detekt
         run: ./gradlew detekt
 

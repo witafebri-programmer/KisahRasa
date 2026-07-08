@@ -20,7 +20,6 @@
 
     <!-- Background & Surface -->
     <color name="background">#FFF8F6</color>
-    <color name="on_background">#231A17</color>
     <color name="surface">#FFF8F6</color>
     <color name="on_surface">#231A17</color>
     <color name="surface_variant">#F4DED5</color>
@@ -46,7 +45,6 @@
 
     <!-- Dark Mode Background & Surface -->
     <color name="background_dark">#231A17</color>
-    <color name="on_background_dark">#F0DFDB</color>
     <color name="surface_dark">#231A17</color>
     <color name="on_surface_dark">#F0DFDB</color>
 </resources>
