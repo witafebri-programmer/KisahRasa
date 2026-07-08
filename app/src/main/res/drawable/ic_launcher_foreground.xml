@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Flavor Star representing Flavor Stories -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,22 L56,27 L61,27 L57,30 L58,35 L54,32 L50,35 L51,30 L47,27 L52,27 Z" />
+    <!-- Cloche Handle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,42 Q50,36 54,36 Q58,36 58,42 Z" />
+    <!-- Cloche Dome representing Recipe Discovery -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M26,70 A28,28 0 0 1 82,70 Z" />
+    <!-- Cloche Base -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,70 H86 V73 H22 Z" />
+</vector>

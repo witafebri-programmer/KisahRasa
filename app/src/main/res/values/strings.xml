@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Kisah Rasa</string>
+    <string name="title_favorite">Favorit</string>
+
+    <!-- Auth Activity -->
+    <string name="auth_title">Kisah Rasa</string>
+    <string name="auth_subtitle">Kisah Rasa Anda Dimulai di Sini</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="btn_login">Masuk</string>
+    <string name="msg_no_account">Belum punya akun? Daftar di sini</string>
+    <string name="desc_app_logo">Logo Aplikasi</string>
+
+    <!-- Register Activity -->
+    <string name="register_title">Gabung Kisah Rasa</string>
+    <string name="register_subtitle">Buat akun untuk memulai perjalanan Anda</string>
+    <string name="btn_create_account">Buat Akun</string>
+
+    <!-- Home Fragment -->
+    <string name="search_hint">Cari resep…</string>
+    <string name="label_explore_recipes">Jelajahi Resep</string>
+    <string name="msg_error_default">Terjadi kesalahan</string>
+    <string name="msg_no_recipes">Resep tidak ditemukan</string>
+    <string name="desc_recipe_image">Gambar Resep</string>
+
+    <!-- Detail Activity -->
+    <string name="label_instructions">Instruksi</string>
+    <string name="desc_back">Kembali</string>
+    <string name="desc_favorite">Favorit</string>
+
+    <!-- Favorite Activity/Fragment -->
+    <string name="title_my_favorites">Favorit Saya</string>
+    <string name="msg_no_favorites">Belum ada resep favorit</string>
+
+    <!-- Profile Fragment -->
+    <string name="label_user_name">Nama Pengguna</string>
+    <string name="label_user_email">pengguna@contoh.com</string>
+    <string name="btn_change_photo">Ubah Foto</string>
+    <string name="btn_logout">Keluar</string>
+    <string name="desc_profile_picture">Foto Profil</string>
+    <string name="msg_photo_updated">Foto berhasil diperbarui</string>
+    <string name="msg_photo_update_failed">Gagal memperbarui foto: %1$s</string>
+
+    <!-- Settings Fragment -->
+    <string name="title_settings">Pengaturan</string>
+    <string name="label_dark_mode">Mode Gelap</string>
+    <string name="desc_dark_mode_icon">Ikon Mode Gelap</string>
+
+    <!-- Bottom Nav -->
+    <string name="menu_home">Beranda</string>
+    <string name="menu_profile">Profil</string>
+    <string name="menu_settings">Pengaturan</string>
+</resources>

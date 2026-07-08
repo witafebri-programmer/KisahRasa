@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Kisah Rasa</string>
+    <string name="title_favorite">Favorites</string>
+
+    <!-- Auth Activity -->
+    <string name="auth_title">Kisah Rasa</string>
+    <string name="auth_subtitle">Your Journey of Flavors Begins Here</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="msg_no_account">Don\'t have an account? Register here</string>
+    <string name="desc_app_logo">App Logo</string>
+
+    <!-- Register Activity -->
+    <string name="register_title">Join Kisah Rasa</string>
+    <string name="register_subtitle">Create an account to start your journey</string>
+    <string name="btn_create_account">Create Account</string>
+
+    <!-- Home Fragment -->
+    <string name="search_hint">Search recipes…</string>
+    <string name="label_explore_recipes">Explore Recipes</string>
+    <string name="msg_error_default">Something went wrong</string>
+    <string name="msg_no_recipes">No recipes found</string>
+    <string name="desc_recipe_image">Recipe Image</string>
+
+    <!-- Detail Activity -->
+    <string name="label_instructions">Instructions</string>
+    <string name="desc_back">Back</string>
+    <string name="desc_favorite">Favorite</string>
+
+    <!-- Favorite Activity/Fragment -->
+    <string name="title_my_favorites">My Favorites</string>
+    <string name="msg_no_favorites">No favorite recipes yet</string>
+
+    <!-- Profile Fragment -->
+    <string name="label_user_name">User Name</string>
+    <string name="label_user_email">user@example.com</string>
+    <string name="btn_change_photo">Change Photo</string>
+    <string name="btn_logout">Logout</string>
+    <string name="desc_profile_picture">Profile Picture</string>
+    <string name="msg_photo_updated">Photo updated successfully</string>
+    <string name="msg_photo_update_failed">Failed to update photo: %1$s</string>
+
+    <!-- Settings Fragment -->
+    <string name="title_settings">Settings</string>
+    <string name="label_dark_mode">Dark Mode</string>
+    <string name="desc_dark_mode_icon">Dark Mode Icon</string>
+
+    <!-- Bottom Nav -->
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_settings">Settings</string>
+</resources>
