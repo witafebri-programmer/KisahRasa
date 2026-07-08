@@ -50,13 +50,17 @@ moshiKotlin = "1.15.2"
 moshiKotlinCodegen = "1.15.2"
 datastorePreferences = "1.2.1"
 material = "1.14.0"
-hilt = "2.60"
+hilt = "2.60.1"
 googleServices = "4.5.0"
 firebaseAuth = "23.2.1"
 glide = "5.0.7"
 sqlcipher = "4.5.4"
 sqliteKtx = "2.7.0"
 rootbeer = "0.1.2"
+securityCrypto = "1.1.0"
+detekt = "1.23.8"
+jacoco = "0.8.12"
+dependencyCheck = "12.2.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -125,6 +129,7 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 android-database-sqlcipher = { group = "net.zetetic", name = "android-database-sqlcipher", version.ref = "sqlcipher" }
 androidx-sqlite-ktx = { group = "androidx.sqlite", name = "sqlite-ktx", version.ref = "sqliteKtx" }
 rootbeer-lib = { group = "com.scottyab", name = "rootbeer-lib", version.ref = "rootbeer" }
+androidx-security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "securityCrypto" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -135,3 +140,5 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-dynamic-feature = { id = "com.android.dynamic-feature", version.ref = "agp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+dependency-check = { id = "org.owasp.dependencycheck", version.ref = "dependencyCheck" }

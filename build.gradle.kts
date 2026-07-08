@@ -8,4 +8,11 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.plugin.serialization) apply false
     alias(libs.plugins.dagger.hilt) apply false
     alias(libs.plugins.google.services) apply false
+    alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.dependency.check) apply false
+    id("jacoco")
+}
+
+subprojects {
+    apply(plugin = "org.owasp.dependencycheck")
 }

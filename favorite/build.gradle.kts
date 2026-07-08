@@ -4,7 +4,10 @@ plugins {
     alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.jetbrains.kotlin.plugin.serialization)
     id("kotlin-parcelize")
+    alias(libs.plugins.detekt)
 }
+
+apply(from = "../gradle/jacoco.gradle.kts")
 
 android {
     namespace = "com.dicoding.kisahrasa.favorite"

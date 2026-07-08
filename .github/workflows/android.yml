@@ -22,11 +22,24 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Decode Google Services JSON
+        run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > app/google-services.json
+        if: "${{ secrets.GOOGLE_SERVICES_JSON != '' }}"
+
       - name: Run Lint
         run: ./gradlew lintDebug
 
+      - name: Run Detekt
+        run: ./gradlew detekt
+
+      - name: Run Dependency Check
+        run: ./gradlew dependencyCheckAnalyze
+
       - name: Run Unit Tests
         run: ./gradlew testDebugUnitTest
+
+      - name: Generate Coverage Report
+        run: ./gradlew jacocoTestReport
 
       - name: Build APK
         run: ./gradlew assembleDebug

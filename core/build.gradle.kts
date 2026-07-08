@@ -3,7 +3,10 @@ plugins {
     alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.jetbrains.kotlin.plugin.serialization)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.detekt)
 }
+
+apply(from = "../gradle/jacoco.gradle.kts")
 
 android {
     namespace = "com.dicoding.kisahrasa.core"
@@ -67,11 +70,16 @@ dependencies {
     // DataStore
     implementation(libs.androidx.datastore.preferences)
 
+    // Security
+    implementation(libs.androidx.security.crypto)
+
     // SQLCipher
     implementation(libs.android.database.sqlcipher)
     implementation(libs.androidx.sqlite.ktx)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

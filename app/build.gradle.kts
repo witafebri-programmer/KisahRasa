@@ -6,7 +6,10 @@ plugins {
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.google.services)
     id("kotlin-parcelize")
+    alias(libs.plugins.detekt)
 }
+
+apply(from = "../gradle/jacoco.gradle.kts")
 
 android {
     namespace = "com.dicoding.kisahrasa"
