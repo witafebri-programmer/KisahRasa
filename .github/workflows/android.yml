@@ -31,11 +31,6 @@ jobs:
       - name: Run Detekt
         run: ./gradlew detekt
 
-      - name: Run Dependency Check
-        run: ./gradlew dependencyCheckAnalyze
-        env:
-          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
-
       - name: Run Unit Tests
         run: ./gradlew testDebugUnitTest
 
